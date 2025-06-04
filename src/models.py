@@ -8,6 +8,7 @@ db = SQLAlchemy()
 class User(db.Model):
     __tablename__ = 'user'
     id: Mapped[int] = mapped_column(primary_key=True)
+    email: Mapped[str] = mapped_column(String(100), unique=True)
     username: Mapped[str] = mapped_column(String(50), unique=True)
     is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
 
